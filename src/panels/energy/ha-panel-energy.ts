@@ -1,6 +1,6 @@
 import type { CSSResultGroup, PropertyValues, TemplateResult } from "lit";
 import { LitElement, css, html, nothing } from "lit";
-import { mdiPencil, mdiDownload } from "@mdi/js";
+import { mdiPencil, mdiDownload, mdiHome } from "@mdi/js";
 import { customElement, property, state } from "lit/decorators";
 import "../../components/ha-menu-button";
 import "../../components/ha-list-item";
@@ -74,6 +74,15 @@ class PanelEnergy extends LitElement {
             .hass=${this.hass}
             .narrow=${this.narrow}
           ></ha-menu-button>
+          <a
+            href="/lovelace-openenergy/0"
+            style="text-decoration: none; color: var(--primary-text-color); display: flex; align-items: center; margin-left: 8px;"
+          >
+            <ha-icon-button
+              .path=${mdiHome}
+              .label=${"Accueil OpenEnergy"}
+            ></ha-icon-button>
+          </a>
           ${!this.narrow
             ? html`<div class="main-title">
                 ${this.hass.localize("panel.energy")}

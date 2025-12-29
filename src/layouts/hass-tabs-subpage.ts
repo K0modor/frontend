@@ -3,6 +3,7 @@ import { css, html, LitElement, nothing } from "lit";
 import { customElement, eventOptions, property, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import memoizeOne from "memoize-one";
+import { mdiHome } from "@mdi/js";
 import { canShowPage } from "../common/config/can_show_page";
 import { restoreScroll } from "../common/decorators/restore-scroll";
 import type { LocalizeFunc } from "../common/translations/localize";
@@ -153,6 +154,15 @@ class HassTabsSubpage extends LitElement {
                       @click=${this._backTapped}
                     ></ha-icon-button-arrow-prev>
                   `}
+            <a
+              href="/lovelace-openenergy/0"
+              style="text-decoration: none; color: inherit; display: flex; align-items: center; margin-left: -8px; margin-right: 8px;"
+            >
+              <ha-icon-button
+                .path=${mdiHome}
+                .label=${"Accueil OpenEnergy"}
+              ></ha-icon-button>
+            </a>
             ${this.narrow || !showTabs
               ? html`<div class="main-title">
                   <slot name="header">${!showTabs ? tabs[0] : ""}</slot>
